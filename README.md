@@ -1,6 +1,6 @@
 # Recipes
 
-A recipe book written in MERN (Mongodb, Express, React, Node).
+A recipe book written in MERN (Mongodb, Express, React, Node) and utilizing Flux and Webpack.
 
 ## Development
 
