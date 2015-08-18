@@ -6,7 +6,7 @@ A recipe book written in MERN (Mongodb, Express, React, Node).
 
 # Boilerplate Info
 
-This app was built using the [node express and mongoose boilerplate.](https://github.com/madhums/node-express-mongoose) [This is an example app using the boilderplate.](https://github.com/madhums/node-express-mongoose-demo)
+This app was built using the [node express and mongoose boilerplate.](https://github.com/madhums/node-express-mongoose) [This is an example app using the boilerplate.](https://github.com/madhums/node-express-mongoose-demo)
 
 See boilerplate readme below.
 
