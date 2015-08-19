@@ -27,6 +27,7 @@
     "express-session": "1.11.3",
     "flux": "^2.1.1",
     "forever": "0.14.2",
+    "lodash": "^3.10.1",
     "method-override": "2.3.3",
     "mongoose": "4.0.6",
     "mongoose-user": "latest",
@@ -43,7 +44,7 @@
     "mocha": "latest",
     "should": "latest",
     "supertest": "latest"
-    },
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:mimiflynn/mern-recipes.git"
