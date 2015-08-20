@@ -23,8 +23,8 @@ mongoose.connection.on('error', console.log);
 mongoose.connection.on('disconnected', connect);
 
 // Bootstrap models
-fs.readdirSync(__dirname + '/app/models').forEach(function (file) {
-  if (~file.indexOf('.js')) require(__dirname + '/app/models/' + file);
+fs.readdirSync(__dirname + '/server/models').forEach(function (file) {
+  if (~file.indexOf('.js')) require(__dirname + '/server/models/' + file);
 });
 
 // Bootstrap passport config

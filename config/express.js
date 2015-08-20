@@ -35,7 +35,7 @@ module.exports = function (app, passport) {
   }));
 
   // Static files middleware
-  app.use(express.static(config.root + '/public'));
+  app.use(express.static(config.root + '/client'));
 
   // Use winston on production
   var log;
@@ -63,9 +63,9 @@ module.exports = function (app, passport) {
   }
 
   // set views path, template engine and default layout
-  app.engine('html', swig.renderFile);
-  app.set('views', config.root + '/app/views');
-  app.set('view engine', 'html');
+  app.set('views', config.root + '/server/views');
+  app.set('view engine', 'jsx');
+  app.engine('jsx', require('express-react-views').createEngine());
 
   // expose package.json to views
   app.use(function (req, res, next) {
