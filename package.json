@@ -27,6 +27,11 @@
     "express-session": "1.11.3",
     "flux": "^2.1.1",
     "forever": "0.14.2",
+    "grunt": "^0.4.5",
+    "grunt-connect": "^0.2.0",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-webpack": "^1.0.11",
     "lodash": "^3.10.1",
     "method-override": "2.3.3",
     "mongoose": "4.0.6",
@@ -37,11 +42,15 @@
     "react": "^0.13.3",
     "swig": "1.4.2",
     "view-helpers": "0.1.5",
+    "webpack": "^1.11.0",
+    "webpack-dev-server": "^1.10.1",
     "winston": "1.0.1"
   },
   "devDependencies": {
-    "nodemon": "latest",
+    "grunt-jsxhint": "^0.6.0",
     "mocha": "latest",
+    "nodemon": "latest",
+    "react-tools": "^0.13.3",
     "should": "latest",
     "supertest": "latest"
   },
