@@ -25,7 +25,7 @@ module.exports = {
 };
 ```
 
-# Tools
+# Build Tools
 
 ## npm
 
@@ -52,6 +52,19 @@ webpack suggests using its own server thingy, but since we are going to be runni
 ## Babel
 
 https://babeljs.io
+
+
+# Client Side
+
+## Flux
+
+https://github.com/facebook/flux
+
+# Server Side
+
+## MongoDB
+
+## Mongoose
 
 ## References
 
