@@ -16,16 +16,21 @@ module.exports = function (grunt) {
     },
     webpack: {
       build: {
-        entry: "./source/scripts/app.js",
+        entry: './source/scripts/app.jsx',
         output: {
-            path: "client/js/",
-            filename: "app.js",
+            path: 'client/js/',
+            filename: 'app.js',
         },
         stats: {
             // Configure the console output
             colors: false,
             modules: true,
             reasons: true
+        },
+        module: {
+          loaders: [
+            { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ }
+          ]
         }
       }
     },
