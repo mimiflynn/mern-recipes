@@ -19,13 +19,6 @@ module.exports = function (app, passport) {
 
   app.get('/', home.index);
 
-  // contacts
-  app.get('/contacts', contacts.all);
-  app.post('/contacts', contacts.create);
-  app.get('/contact/:contactId', contacts.show);
-  app.put('/contact/:contactId', auth.requiresLogin, contacts.update);
-  app.delete('/contact/:contactId', auth.requiresLogin, contacts.destroy);
-
   // user routes
   app.get('/login', users.login);
   app.get('/signup', users.signup);

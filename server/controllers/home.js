@@ -4,7 +4,7 @@
  */
 
 exports.index = function (req, res) {
-  res.render('home/index', {
+  res.render('index', {
     title: 'Node Express Mongoose Boilerplate'
   });
 };

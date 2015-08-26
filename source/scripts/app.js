@@ -1,5 +1,5 @@
 var React = require('react');
-var RecipeBook = require('./components/RecipeBook');
+var RecipeBook = require('./recipes/components/RecipeBook');
 
 React.render(
   <RecipeBook />,

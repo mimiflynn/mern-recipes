@@ -16,10 +16,10 @@ module.exports = function (grunt) {
     },
     webpack: {
       build: {
-        entry: './source/scripts/app.jsx',
+        entry: './source/scripts/app.js',
         output: {
             path: 'client/js/',
-            filename: 'app.js',
+            filename: '[name].js',
         },
         stats: {
             // Configure the console output
@@ -40,12 +40,12 @@ module.exports = function (grunt) {
         globals: {
           console: true
         },
-        additionalSuffixes: ['.js', '.jsx']
+        additionalSuffixes: ['.js']
       }
     },
     watch: {
       dev: {
-        files: ['<%= jshint.files %>', 'source/**/*.jsx', 'source/sass/**/*.scss', 'source/**/*.js', 'app/views/**/*.jsx'],
+        files: ['<%= jshint.files %>', 'source/**/*.js', 'source/sass/**/*.scss', 'source/**/*.js', 'app/views/**/*.js'],
         tasks: ['jshint', 'compass', 'browserify']
       },
     },

@@ -1,5 +1,5 @@
 var React = require('react');
-var Card = require('./card.jsx');
+var Card = require('./card');
 
 module.exports = React.createClass({
   propTypes: {
