@@ -5,15 +5,6 @@ module.exports = function (grunt) {
     clean: {
       build: ['client/js/app.js']
     },
-    concurrent: {
-      target: {
-        tasks: ['watch', 'connect:server'],
-        options: {
-          logConcurrentOutput: true,
-          limit: 5
-        }
-      }
-    },
     webpack: {
       build: {
         entry: './source/scripts/app.js',
@@ -44,21 +35,17 @@ module.exports = function (grunt) {
       }
     },
     watch: {
-      dev: {
-        files: ['<%= jshint.files %>', 'source/**/*.js', 'source/sass/**/*.scss', 'source/**/*.js', 'app/views/**/*.js'],
-        tasks: ['jshint', 'compass', 'browserify']
+      options: {
+        atBegin: true
       },
-    },
-    connect: {
-      server: {
-        port: 1337,
-        base: 'public'
-      }
+      dev: {
+        files: ['<%= jshint.files %>', 'source/**/*.js', 'shared/**/*.js'],
+        tasks: ['jshint', 'webpack']
+      },
     }
   });
 
   grunt.loadNpmTasks('grunt-jsxhint');
-  grunt.loadNpmTasks('grunt-connect');
   grunt.loadNpmTasks('grunt-webpack');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-watch');
