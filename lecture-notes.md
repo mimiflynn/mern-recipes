@@ -25,7 +25,7 @@ module.exports = {
 };
 ```
 
-# Tools
+# Build Tools
 
 ## npm
 
@@ -39,6 +39,8 @@ npm install
 
 Runs web server as well.
 
+
+
 ## Webpack
 
 https://webpack.github.io
@@ -49,9 +51,28 @@ https://webpack.github.io/docs/configuration.html
 
 webpack suggests using its own server thingy, but since we are going to be running a backend api 
 
+https://github.com/webpack/grunt-webpack
+
 ## Babel
 
+Needed to read jsx and es6.
+
 https://babeljs.io
+
+https://robots.thoughtbot.com/setting-up-webpack-for-react-and-hot-module-replacement
+
+
+# Client Side
+
+## Flux
+
+https://github.com/facebook/flux
+
+# Server Side
+
+## MongoDB
+
+## Mongoose
 
 ## References
 

@@ -64,8 +64,8 @@ module.exports = function (app, passport) {
 
   // set views path, template engine and default layout
   app.set('views', config.root + '/server/views');
-  app.set('view engine', 'jsx');
-  app.engine('jsx', require('express-react-views').createEngine());
+  app.set('view engine', 'js');
+  app.engine('js', require('express-react-views').createEngine());
 
   // expose package.json to views
   app.use(function (req, res, next) {
