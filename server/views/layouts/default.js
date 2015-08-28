@@ -23,6 +23,7 @@ var DefaultLayout = React.createClass({
               {this.props.children}
             </div>
           </div>
+          <script src="/js/app.js"></script>
         </body>
       </html>
     );

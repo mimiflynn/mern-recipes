@@ -9,7 +9,6 @@ var IndexLayout = React.createClass({
         <section>
           <p>Isomorphic</p>
         </section>
-        <script src="/js/app.js"></script>
       </DefaultLayout>
     );
   }

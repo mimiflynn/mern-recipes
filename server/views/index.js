@@ -10,7 +10,6 @@ var IndexLayout = React.createClass({
         <section>
           heyoo!
         </section>
-        <script src="/js/app.js"></script>
       </DefaultLayout>
     );
   }
