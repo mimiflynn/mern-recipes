@@ -2,8 +2,14 @@ var React = require('react');
 
 var Navbar = require('../navbar.js');
 
-var DefaultLayout = React.createClass({
+module.exports = React.createClass({
+  propTypes: {
+    csrf_token: React.PropTypes.string
+  },
+  
   render: function () {
+    var _csrf = 'window.csrf = "' + this.props.csrf_token + '"';
+
     return (
       <html>
         <head>
@@ -24,10 +30,9 @@ var DefaultLayout = React.createClass({
             </div>
           </div>
           <script src="/js/app.js"></script>
+          <script dangerouslySetInnerHTML={{__html: _csrf}} />
         </body>
       </html>
     );
   }
 });
-
-module.exports = DefaultLayout;

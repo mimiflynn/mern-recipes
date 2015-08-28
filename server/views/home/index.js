@@ -2,16 +2,15 @@ var React = require('react');
 
 var DefaultLayout = require('../layouts/default');
 
-var IndexLayout = React.createClass({
+module.exports = React.createClass({
   render: function () {
+
     return (
       <DefaultLayout title={this.props.title}>
         <section>
-          <p>Isomorphic</p>
+          {this.props.content}
         </section>
       </DefaultLayout>
     );
   }
 });
-
-module.exports = IndexLayout;

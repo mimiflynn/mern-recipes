@@ -1,7 +1,14 @@
 var React = require('react');
 
 module.exports = React.createClass({
+  propTypes: {
+    csrf_token: React.PropTypes.string,
+    title: React.PropTypes.string
+  },
+  
   render: function () {
+    var _csrf = 'window.csrf = "' + this.props.csrf_token + '"';
+
     return (
       <form action="/users/session" method="post" role="form" class="form-horizontal">
         <input type="hidden" name="_csrf" value="{ csrf_token }">
