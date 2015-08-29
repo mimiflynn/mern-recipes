@@ -5,29 +5,35 @@ module.exports = React.createClass({
     csrf_token: React.PropTypes.string,
     title: React.PropTypes.string
   },
+
+  getInitialState: function () {
+    return {
+      message: 'Log In'
+    }
+  },
   
   render: function () {
     var _csrf = 'window.csrf = "' + this.props.csrf_token + '"';
 
     return (
       <form action="/users/session" method="post" role="form" class="form-horizontal">
-        <input type="hidden" name="_csrf" value="{ csrf_token }">
+        <input type="hidden" name="_csrf" value="{ csrf_token }" />
 
         <p class="col-sm-offset-2 error">
-          { message }
+          { this.state.message }
         </p>
 
         <div class="form-group">
           <label for="email" class="col-sm-2 control-label">Email</label>
           <div class="col-sm-10">
-            <input id="email" class="form-control" type="email" placeholder="Email" name="email">
+            <input id="email" class="form-control" type="email" placeholder="Email" name="email" />
           </div>
         </div>
 
         <div class="form-group">
           <label for="password" class="col-sm-2 control-label">Password</label>
           <div class="col-sm-10">
-            <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+            <input id="password" class="form-control" type="password" placeholder="Password" name="password" />
           </div>
         </div>
 

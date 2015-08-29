@@ -4,11 +4,10 @@
  */
 
 var mongoose = require('mongoose');
-var home = require('home');
-
-var users = require('users');
-
 var auth = require('./middlewares/authorization');
+
+var home = require('home');
+var users = require('users');
 
 /**
  * Expose
