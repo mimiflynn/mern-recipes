@@ -9,11 +9,9 @@ module.exports = React.createClass({
   },
 
   render: function () {
-    var _csrf = 'window.csrf = "' + this.props.csrf_token + '"';
-
     return (
       <form action="/users" method="post" role="form" class="form-horizontal">
-        <input type="hidden" name="_csrf" value="{ csrf_token }" />
+        <input type="hidden" name="_csrf" value={ this.props.csrf_token } />
 
         <div class="form-group">
           <label for="name" class="col-sm-2 control-label">Full name</label>

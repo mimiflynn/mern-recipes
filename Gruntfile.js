@@ -10,7 +10,7 @@ module.exports = function (grunt) {
         entry: './source/scripts/app.js',
         output: {
             path: 'client/js/',
-            filename: '[name].js',
+            filename: 'app.js',
         },
         stats: {
             // Configure the console output

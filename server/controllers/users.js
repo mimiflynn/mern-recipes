@@ -53,6 +53,7 @@ exports.create = function (req, res) {
 
 exports.show = function (req, res) {
   var user = req.profile;
+  console.log('users.show');
   res.render('users/show', {
     title: user.name,
     user: user

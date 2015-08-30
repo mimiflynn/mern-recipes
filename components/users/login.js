@@ -13,11 +13,9 @@ module.exports = React.createClass({
   },
   
   render: function () {
-    var _csrf = 'window.csrf = "' + this.props.csrf_token + '"';
-
     return (
       <form action="/users/session" method="post" role="form" class="form-horizontal">
-        <input type="hidden" name="_csrf" value="{ csrf_token }" />
+        <input type="hidden" name="_csrf" value={ this.props.csrf_token } />
 
         <p class="col-sm-offset-2 error">
           { this.state.message }
