@@ -6,7 +6,7 @@ module.exports = React.createClass({
 	propTypes: {
 		title: React.PropTypes.string,
 		content: React.PropTypes.string,
-		user: React.PropTypes.string
+		req: React.PropTypes.object
 	},
   render: function () {
     return (
@@ -15,7 +15,7 @@ module.exports = React.createClass({
           {this.props.content}
         </section>
         <section>
-        	Welcome, <a href="/login">{this.props.user}</a>!
+        	Welcome, <a href="/login">{this.props.req.profile.name}</a>!
         </section>
       </DefaultLayout>
     );

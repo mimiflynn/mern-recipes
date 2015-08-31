@@ -6,13 +6,17 @@ var Login = require('./login');
 
 module.exports = React.createClass({
   propTypes: {
-    title: React.PropTypes.string,
-    user: React.PropTypes.object
+    req: React.PropTypes.object
   },
-
   render: function () {
+    console.log(this.props.req);
+    var user = this.props.req.profile;
     return (
-      <h1>{ user.name || user.username }</h1>
-    )
+      <DefaultLayout title={ user.name || user.username }>
+        <section>
+          Welcome, <a href="/login">{user.name}</a>!
+        </section>
+      </DefaultLayout> 
+    );
   }
-)};
+});
