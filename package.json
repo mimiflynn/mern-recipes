@@ -53,8 +53,8 @@
     "mocha": "latest",
     "nodemon": "latest",
     "react-tools": "^0.13.3",
-    "should": "latest",
-    "supertest": "latest"
+    "should": "4.0.4",
+    "supertest": "0.13.0"
   },
   "repository": {
     "type": "git",

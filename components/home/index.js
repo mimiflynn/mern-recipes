@@ -15,7 +15,7 @@ module.exports = React.createClass({
           {this.props.content}
         </section>
         <section>
-        	Welcome, {this.props.user.name}!
+        	Welcome, {this.props.user}!
         </section>
       </DefaultLayout>
     );
