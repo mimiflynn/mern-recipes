@@ -6,16 +6,17 @@ module.exports = React.createClass({
 	propTypes: {
 		title: React.PropTypes.string,
 		content: React.PropTypes.string,
-		req: React.PropTypes.object
+		user: React.PropTypes.object
 	},
   render: function () {
+    var greating = this.props.user ? this.props.user.name : <a href="/login">sign in</a>;
     return (
-      <DefaultLayout title={this.props.title}>
+      <DefaultLayout title={ this.props.title }>
         <section>
           {this.props.content}
         </section>
         <section>
-        	Welcome, <a href="/login">{this.props.req.profile.name}</a>!
+        	Welcome, { greating }!
         </section>
       </DefaultLayout>
     );

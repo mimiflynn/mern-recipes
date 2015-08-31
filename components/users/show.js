@@ -9,7 +9,6 @@ module.exports = React.createClass({
     req: React.PropTypes.object
   },
   render: function () {
-    console.log(this.props.req);
     var user = this.props.req.profile;
     return (
       <DefaultLayout title={ user.name || user.username }>
