@@ -16,7 +16,7 @@ module.exports = React.createClass({
           {this.props.content}
         </section>
         <section>
-        	Welcome, { greating }!
+        	<h2>Welcome, { greating }!</h2>
         </section>
       </DefaultLayout>
     );
