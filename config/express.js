@@ -63,7 +63,7 @@ module.exports = function (app, passport) {
   }
 
   // set views path, template engine and default layout
-  app.set('views', config.root + '/server/views');
+  app.set('views', config.root + '/components');
   app.set('view engine', 'js');
   app.engine('js', require('express-react-views').createEngine());
 

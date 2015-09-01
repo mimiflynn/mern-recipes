@@ -4,15 +4,21 @@
  */
 
 var mongoose = require('mongoose');
-var home = require('home');
-
-var users = require('users');
-
+var _ = require('underscore');
 var auth = require('./middlewares/authorization');
+
+var home = require('home');
+var users = require('users');
 
 /**
  * Expose
  */
+
+var authOptions = {
+  successRedirect: '/users/:userId',
+  failureRedirect: '/login',
+  failureFlash: 'Invalid email or password.'
+};
 
 module.exports = function (app, passport) {
 
@@ -22,13 +28,13 @@ module.exports = function (app, passport) {
   app.get('/login', users.login);
   app.get('/signup', users.signup);
   app.get('/logout', users.logout);
+  app.get('/users/:userId', users.show);
+  app.get('/loggedin', users.loggedin);
+  
   app.post('/users', users.create);
   app.post('/users/session',
-    passport.authenticate('local', {
-      failureRedirect: '/login',
-      failureFlash: 'Invalid email or password.'
-    }), users.session);
-  app.get('/users/:userId', users.show);
+    passport.authenticate('local', authOptions), users.session);
+
   app.get('/auth/facebook',
     passport.authenticate('facebook', {
       scope: [ 'email', 'user_about_me'],

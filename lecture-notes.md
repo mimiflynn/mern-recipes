@@ -70,6 +70,14 @@ https://github.com/facebook/flux
 
 # Server Side
 
+## ExpressJS
+
+## Passport
+
+Authentication - http://passportjs.org/
+
+http://mherman.org/blog/2015/01/31/local-authentication-with-passport-and-express-4/#.VeSFltNVhBc
+
 ## MongoDB
 
 ## Mongoose

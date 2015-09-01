@@ -4,7 +4,8 @@
  */
 
 exports.index = function (req, res) {
-  res.render('index', {
-    title: 'Node Express Mongoose Boilerplate'
+  res.render('home/index', {
+    title: 'Recipes for you and me',
+    user: req.isAuthenticated() ? req.user : '0'
   });
 };

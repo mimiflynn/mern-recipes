@@ -23,6 +23,10 @@ exports.load = function (req, res, next, id) {
   });
 };
 
+exports.loggedin = function (req, res) {
+  res.send(req.isAuthenticated() ? req.user : '0');
+};
+
 /**
  * Create user
  */
@@ -33,7 +37,7 @@ exports.create = function (req, res) {
   user.save(function (err) {
     if (err) {
       return res.render('users/signup', {
-        error: utils.errors(err.errors),
+        errors: utils.errors(err.errors),
         user: user,
         title: 'Sign up'
       });
@@ -52,10 +56,8 @@ exports.create = function (req, res) {
  */
 
 exports.show = function (req, res) {
-  var user = req.profile;
   res.render('users/show', {
-    title: user.name,
-    user: user
+    req: req
   });
 };
 
