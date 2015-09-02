@@ -14,7 +14,7 @@ module.exports = React.createClass({
     return (
       <DefaultLayout title={ this.props.title } user={ this.props.user } isAuthenticated={ this.props.isAuthenticated }>
         <section>
-          {this.props.content}
+          { this.props.content }
         </section>
         <section>
         	<h2>Welcome, { greating }!</h2>

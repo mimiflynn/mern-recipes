@@ -1,5 +1,20 @@
 var React = require('react');
 
+var Menu = require('./menu');
+
+var defaultMenu = [{
+  url: '/login',
+  label: 'Log In'
+}, {
+  url: '/signup',
+  label: 'Sign Up'
+}];
+
+var userMenu = [{
+  url: '/logout',
+  label: 'Log Out'
+}];
+
 module.exports = React.createClass({
   propTypes: {
     user: React.PropTypes.string,
@@ -8,22 +23,6 @@ module.exports = React.createClass({
   componentWillMount: function () {
 
   },
-  userMenu: function () {
-    if (this.props.isAuthenticated) {
-      return (
-        <ul className="nav navbar-nav navbar-right">
-          <li><a href="/logout">Log Out</a></li>
-        </ul>
-      );
-    } else {
-      return (
-        <ul className="nav navbar-nav navbar-right">
-          <li><a href="/login">Log In</a></li>
-          <li><a href="/signup">Sign Up</a></li>
-        </ul>
-      );
-    }
-  },
   render: function () {
     return (
       <nav className="navbar navbar-inverse navbar-fixed-top">
@@ -31,7 +30,7 @@ module.exports = React.createClass({
           <div className="logo pull-left">
             <a className="navbar-brand" href="/">Recipes</a>
           </div>
-          { this.userMenu() }
+          <Menu items={ (this.props.isAuthenticated) ? userMenu : defaultMenu } />
         </div>
       </nav>
     );

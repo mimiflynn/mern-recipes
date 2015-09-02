@@ -1,6 +1,6 @@
 var React = require('react');
 
-var Navbar = require('../navbar.js');
+var Navbar = require('./components/navbar.js');
 
 module.exports = React.createClass({
   propTypes: {
