@@ -96,7 +96,7 @@ exports.signup = function (req, res) {
 
 exports.logout = function (req, res) {
   req.logout();
-  res.redirect('/login');
+  res.redirect('/');
 };
 
 /**

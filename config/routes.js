@@ -15,7 +15,7 @@ var users = require('users');
  */
 
 var authOptions = {
-  successRedirect: '/users/:userId',
+  successRedirect: '/',
   failureRedirect: '/login',
   failureFlash: 'Invalid email or password.'
 };

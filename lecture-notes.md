@@ -64,13 +64,19 @@ https://robots.thoughtbot.com/setting-up-webpack-for-react-and-hot-module-replac
 
 # Client Side
 
+## React
+
 ## Flux
 
 https://github.com/facebook/flux
 
+## Bootstrap
+
 # Server Side
 
 ## ExpressJS
+
+http://expressjs.com/
 
 ## Passport
 
@@ -80,9 +86,15 @@ http://mherman.org/blog/2015/01/31/local-authentication-with-passport-and-expres
 
 ## MongoDB
 
+https://www.mongodb.org/
+
 ## Mongoose
+
+http://mongoosejs.com/index.html
 
 ## References
 
 https://robots.thoughtbot.com/setting-up-webpack-for-react-and-hot-module-replacement
+
+https://github.com/madhums/node-express-mongoose-demo
 
