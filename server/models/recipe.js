@@ -35,6 +35,11 @@ var setTags = function (tags) {
 var RecipeSchema = new Schema({
   title: {type : String, default : '', trim : true},
   body: {type : String, default : '', trim : true},
+  ingredients: [{
+    quantity: { type: Number, default: 0 },
+    unit: { type: String, default: '' },
+    name: { type: String, default: '' }
+  }],
   user: {type : Schema.ObjectId, ref : 'User'},
   comments: [{
     body: { type : String, default : '' },
