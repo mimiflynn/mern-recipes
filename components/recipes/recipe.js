@@ -8,7 +8,7 @@ module.exports = React.createClass({
     var greating = this.props.user ? this.props.user.name : <a href="/login">sign in</a>;
     return (
       <section>
-        <h2>Directions</h2>
+        <h3>Directions</h3>
         <p> { this.props.recipe.body } </p>
       </section>
     );
