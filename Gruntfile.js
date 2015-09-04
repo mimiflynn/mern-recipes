@@ -8,9 +8,10 @@ module.exports = function (grunt) {
     webpack: {
       build: {
         entry: './source/scripts/app.js',
+        debug: true,
         output: {
             path: 'client/js/',
-            filename: 'app.js',
+            filename: 'app.js'
         },
         stats: {
             // Configure the console output

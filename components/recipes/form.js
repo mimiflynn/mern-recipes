@@ -4,7 +4,9 @@ var React = require('react');
 
 module.exports = React.createClass({
   propTypes: {
-    csrf_token: React.PropTypes.string
+    csrf_token: React.PropTypes.string.required,
+    error: React.PropTypes.string,
+    recipe: React.PropTypes.object
   },
   render: function () {
     var recipe = {
@@ -27,7 +29,7 @@ module.exports = React.createClass({
     };
     return (
       <section>
-        <form action="/users" method="post" role="form" className="form-horizontal">
+        <form action="/recipes" method="post" role="form" className="form-horizontal">
           <input type="hidden" name="_csrf" value={ this.props.csrf_token } />
           <div className="form-group">
             <label for="title" className="col-sm-2 control-label">Title</label>

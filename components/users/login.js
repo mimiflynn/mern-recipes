@@ -4,7 +4,7 @@ var DefaultLayout = require('../layouts/default');
 
 module.exports = React.createClass({
   propTypes: {
-    csrf_token: React.PropTypes.string,
+    csrf_token: React.PropTypes.string.required,
     title: React.PropTypes.string
   },
 

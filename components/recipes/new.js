@@ -7,14 +7,12 @@ module.exports = React.createClass({
   propTypes: {
     title: React.PropTypes.string,
     content: React.PropTypes.string,
-    csrf_token: React.PropTypes.string
+    csrf_token: React.PropTypes.string.required
   },
   render: function () {
     return (
       <DefaultLayout title={ this.props.title } user={ this.props.user } isAuthenticated={ this.props.isAuthenticated }>
-        <section>
-          <RecipeForm />
-        </section>
+        <RecipeForm csrf_token={ this.props.csrf_token } />
       </DefaultLayout>
     );
   }
