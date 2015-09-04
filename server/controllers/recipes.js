@@ -66,9 +66,13 @@ exports.new = function (req, res){
 
 exports.create = function (req, res) {
   var recipe = new Recipe(req.body);
-  var images = req.files.image
-    ? [req.files.image]
-    : undefined;
+  var images;
+
+  if (typeof req.files !== 'undefined') {
+    images = [req.files.image];
+  } else {
+    images = undefined;
+  }
 
   recipe.user = req.user;
   recipe.uploadAndSave(images, function (err) {
