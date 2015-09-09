@@ -40,6 +40,7 @@ exports.index = function (req, res){
     Recipe.count().exec(function (err, count) {
       res.render('recipes/index', {
         title: 'Recipes',
+        isAuthenticated: req.isAuthenticated(),
         recipes: recipes,
         page: page + 1,
         pages: Math.ceil(count / perPage)
@@ -82,6 +83,7 @@ exports.create = function (req, res) {
     }
     res.render('recipes/new', {
       title: 'New Recipe',
+      isAuthenticated: req.isAuthenticated(),
       recipe: recipe,
       errors: utils.errors(err.errors || err)
     });
@@ -95,6 +97,7 @@ exports.create = function (req, res) {
 exports.edit = function (req, res) {
   res.render('recipes/edit', {
     title: 'Edit ' + req.recipe.title,
+    isAuthenticated: req.isAuthenticated(),
     recipe: req.recipe
   });
 };
@@ -120,6 +123,7 @@ exports.update = function (req, res){
 
     res.render('recipes/edit', {
       title: 'Edit Recipe',
+      isAuthenticated: req.isAuthenticated(),
       recipe: recipe,
       errors: utils.errors(err.errors || err)
     });
@@ -133,6 +137,7 @@ exports.update = function (req, res){
 exports.show = function (req, res){
   res.render('recipes/show', {
     title: req.recipe.title,
+    isAuthenticated: req.isAuthenticated(),
     recipe: req.recipe
   });
 };

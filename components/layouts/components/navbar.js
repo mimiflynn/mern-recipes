@@ -11,14 +11,14 @@ var guestMenu = [{
 }];
 
 var userMenu = [{
-  url: '/logout',
-  label: 'Log Out'
-}, {
   url: '/recipes',
   label: 'Recipes'
 }, {
   url: '/recipes/new',
   label: 'Add a recipe'
+}, {
+  url: '/logout',
+  label: 'Log Out'
 }];
 
 module.exports = React.createClass({
