@@ -2,7 +2,7 @@ var React = require('react');
 
 var Menu = require('./menu');
 
-var defaultMenu = [{
+var guestMenu = [{
   url: '/login',
   label: 'Log In'
 }, {
@@ -13,6 +13,12 @@ var defaultMenu = [{
 var userMenu = [{
   url: '/logout',
   label: 'Log Out'
+}, {
+  url: '/recipes',
+  label: 'Recipes'
+}, {
+  url: '/recipes/new',
+  label: 'Add a recipe'
 }];
 
 module.exports = React.createClass({
@@ -30,7 +36,7 @@ module.exports = React.createClass({
           <div className="logo pull-left">
             <a className="navbar-brand" href="/">Recipes</a>
           </div>
-          <Menu items={ (this.props.isAuthenticated) ? userMenu : defaultMenu } />
+          <Menu items={ (this.props.isAuthenticated) ? userMenu : guestMenu } />
         </div>
       </nav>
     );

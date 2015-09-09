@@ -14,14 +14,14 @@ module.exports = React.createClass({
   render: function () {
     var recipes = this.props.recipes.map(function (item, index) {
       return (
-        <li key={ item._id }>
-          <h2>{ item.title }</h2>
+        <li className="list-group-item" key={ item._id }>
+          <h2><a href={ '/recipes/' + item.id }>{ item.title }</a></h2>
           <Recipe recipe={ item } />
         </li>
       );
     });
     return (
-      <ul>
+      <ul className="list-group">
         { recipes }
       </ul>
     );
