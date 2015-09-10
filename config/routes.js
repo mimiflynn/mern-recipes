@@ -58,7 +58,8 @@ module.exports = function (app, passport) {
   app.get('/signup', users.signup);
   app.get('/logout', users.logout);
   app.get('/users/:userId', users.show);
-  app.get('/loggedin', users.loggedin);
+  
+  app.get('/api/loggedin', users.loggedin);
   
   app.post('/users', users.create);
   app.post('/users/session',

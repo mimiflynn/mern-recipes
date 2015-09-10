@@ -1,6 +1,6 @@
-var assign = require('object-assign');
+var assign = require('react/lib/Object.assign');
 var Dispatcher = require('flux').Dispatcher;
-var PayloadSources = require('./Constants').PayloadSources;
+var PayloadSources = require('../constants/constants').PayloadSources;
 
 var AppDispatcher = assign(new Dispatcher(), {
   handleServerAction: function (action) {

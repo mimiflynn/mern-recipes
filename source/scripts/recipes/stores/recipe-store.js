@@ -1,6 +1,6 @@
-var AppDispatcher = require('../AppDispatcher');
+var AppDispatcher = require('../dispatcher/dispatcher');
 var EventEmitter = require('events').EventEmitter;
-var ActionTypes = require('../Constants').ActionTypes;
+var ActionTypes = require('../constants/constants').ActionTypes;
 var assign = require('react/lib/Object.assign');
 
 var events = new EventEmitter();
@@ -31,7 +31,7 @@ var RecipesStore = {
 };
 
 RecipesStore.dispatchToken = AppDispatcher.register(function (payload) {
-  var { action } = payload;
+  var action = payload.action;
 
   if (action.type === ActionTypes.RECIPES_LOADED) {
     setState({

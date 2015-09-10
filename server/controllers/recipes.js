@@ -8,21 +8,6 @@ var Recipe = mongoose.model('Recipe');
 var utils = require('../../lib/utils');
 var extend = require('util')._extend;
 
-
-/**
- * --------- API ----------- *
- */
-exports.all = function (req, res) {
-  Recipe.find().sort('-created').populate('user', 'name username').exec(function (err, recipe) {
-    if (err) {
-      return res.status(500).json({
-        error: 'Cannot list the recipes'
-      });
-    }
-    res.jsonp(recipe);
-  });
-};
-
 /**
  * Load
  */
@@ -38,8 +23,40 @@ exports.load = function (req, res, next, id){
   });
 };
 
+
 /**
- * --------- Server side pages --------- *
+ * ----------- API ----------- *
+ */
+
+/**
+ * Return all recipes
+ */
+
+exports.all = function (req, res) {
+  Recipe.find().sort('-created').populate('user', 'name username').exec(function (err, recipe) {
+    if (err) {
+      return res.status(500).json({
+        error: 'Cannot list the recipes'
+      });
+    }
+    res.jsonp(recipe);
+  });
+};
+
+/**
+ * Delete an recipe
+ */
+
+exports.destroy = function (req, res){
+  var recipe = req.recipe;
+  recipe.remove(function (err){
+    req.flash('info', 'Deleted successfully');
+    res.redirect('/recipes');
+  });
+};
+
+/**
+ * ----------- Server side pages ----------- *
  */
 
 exports.index = function (req, res){
@@ -154,17 +171,5 @@ exports.show = function (req, res){
     title: req.recipe.title,
     isAuthenticated: req.isAuthenticated(),
     recipe: req.recipe
-  });
-};
-
-/**
- * Delete an recipe
- */
-
-exports.destroy = function (req, res){
-  var recipe = req.recipe;
-  recipe.remove(function (err){
-    req.flash('info', 'Deleted successfully');
-    res.redirect('/recipes');
   });
 };
