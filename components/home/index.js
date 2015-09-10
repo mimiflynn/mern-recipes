@@ -29,6 +29,7 @@ module.exports = React.createClass({
         <section>
         	<h2>Welcome, { greating }!</h2>
         </section>
+        <section id="recipebook" />
       </DefaultLayout>
     );
   }

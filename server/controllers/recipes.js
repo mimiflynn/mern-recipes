@@ -3,10 +3,25 @@
  * Module dependencies.
  */
 
-var mongoose = require('mongoose')
-var Recipe = mongoose.model('Recipe')
-var utils = require('../../lib/utils')
-var extend = require('util')._extend
+var mongoose = require('mongoose');
+var Recipe = mongoose.model('Recipe');
+var utils = require('../../lib/utils');
+var extend = require('util')._extend;
+
+
+/**
+ * --------- API ----------- *
+ */
+exports.all = function (req, res) {
+  Recipe.find().sort('-created').populate('user', 'name username').exec(function (err, recipe) {
+    if (err) {
+      return res.status(500).json({
+        error: 'Cannot list the recipes'
+      });
+    }
+    res.jsonp(recipe);
+  });
+};
 
 /**
  * Load
@@ -24,7 +39,7 @@ exports.load = function (req, res, next, id){
 };
 
 /**
- * List
+ * --------- Server side pages --------- *
  */
 
 exports.index = function (req, res){

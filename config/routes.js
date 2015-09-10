@@ -42,6 +42,8 @@ module.exports = function (app, passport) {
   app.put('/recipes/:id', recipeAuth, recipes.update);
   app.delete('/recipes/:id', recipeAuth, recipes.destroy);
 
+  app.get('/api/recipes', recipes.all);
+
   // comment routes
   app.param('commentId', comments.load);
   app.post('/recipes/:id/comments', auth.requiresLogin, comments.create);
