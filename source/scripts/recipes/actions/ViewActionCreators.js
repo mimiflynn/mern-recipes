@@ -5,14 +5,14 @@ var APIUtils = require('../utils/APIUtils');
 var ViewActionCreators = {
   loadRecipes: function () {
     AppDispatcher.handleViewAction({
-      type: ActionTypes.LOAD_CONTACTS
+      type: ActionTypes.LOAD_RECIPES
     });
     APIUtils.loadRecipes();
   },
 
   deleteRecipe: function (recipe) {
     AppDispatcher.handleViewAction({
-      type: ActionTypes.CONTACT_DELETED,
+      type: ActionTypes.RECIPE_DELETED,
       recipe: recipe
     });
     APIUtils.deleteRecipe(recipe);

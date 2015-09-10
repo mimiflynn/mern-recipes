@@ -6,7 +6,7 @@ var ServerActionCreators = require('../actions/ServerActionCreators');
 var APIUtils = {
   loadRecipes: function () {
     xhr.getJSON(API + '/recipes', function (err, res) {
-      ServerActionCreators.loadedRecipes(res.recipes);
+      ServerActionCreators.loadedRecipes(res);
     });
   },
 
