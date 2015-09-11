@@ -5,9 +5,10 @@ var DefaultLayout = require('../layouts/default');
 module.exports = React.createClass({
 	propTypes: {
 		title: React.PropTypes.string,
+    isAuthenticated: React.PropTypes.bool,
+    user: React.PropTypes.object,
 		content: React.PropTypes.string,
-		user: React.PropTypes.object,
-    isAuthenticated: React.PropTypes.bool
+		scripts: React.PropTypes.array
 	},
   loggedInGreeting: function () {
     return this.props.user.name;
@@ -22,7 +23,7 @@ module.exports = React.createClass({
   render: function () {
     var greating = this.props.isAuthenticated ? this.loggedInGreeting() : this.guestGreeting();
     return (
-      <DefaultLayout title={ this.props.title } user={ this.props.user } isAuthenticated={ this.props.isAuthenticated }>
+      <DefaultLayout title={ this.props.title } user={ this.props.user } isAuthenticated={ this.props.isAuthenticated } scripts={ this.props.scripts }>
         <section>
           { this.props.content }
         </section>

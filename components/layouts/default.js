@@ -1,12 +1,14 @@
 var React = require('react');
 
 var Navbar = require('./components/navbar.js');
+var Scripts = require('./components/scripts.js');
 
 module.exports = React.createClass({
   propTypes: {
     title: React.PropTypes.string,
     user: React.PropTypes.object,
-    isAuthenticated: React.PropTypes.bool
+    isAuthenticated: React.PropTypes.bool,
+    scripts: React.PropTypes.array
   },
   render: function () {
     return (
@@ -28,7 +30,7 @@ module.exports = React.createClass({
               { this.props.children }
             </div>
           </section>
-          <script src="/js/app.js"></script>
+          <Scripts scripts={ this.props.scripts } />
         </body>
       </html>
     );

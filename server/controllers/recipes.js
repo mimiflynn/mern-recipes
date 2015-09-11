@@ -88,6 +88,7 @@ exports.index = function (req, res){
 exports.new = function (req, res){
   res.render('recipes/new', {
     title: 'New Recipe',
+    isAuthenticated: req.isAuthenticated(),
     recipe: new Recipe({})
   });
 };
