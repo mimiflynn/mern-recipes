@@ -15,7 +15,7 @@ module.exports = React.createClass({
     var recipes = this.props.recipes.map(function (item, index) {
       return (
         <li className="list-group-item" key={ item._id }>
-          <h2><a href={ '/recipes/' + item.id }>{ item.title }</a></h2>
+          <h2><a href={ '/recipes/' + item._id }>{ item.title }</a></h2>
           <Recipe recipe={ item } />
         </li>
       );

@@ -1,10 +1,10 @@
 var React = require('react');
 
-var FormWrapper = require('../form-wrapper.js');
+var FormWrapper = require('../layouts/form-wrapper.js');
 
 module.exports = React.createClass({
   propTypes: {
-    csrf_token: React.PropTypes.string.required,
+    csrf_token: React.PropTypes.string,
     error: React.PropTypes.string,
     recipe: React.PropTypes.object
   },
@@ -28,7 +28,7 @@ module.exports = React.createClass({
       createdAt: Date.now
     };
     return (
-      <FormWrapper actionUrl="/recipes" httpMethod="post">
+      <FormWrapper actionUrl="/recipes" httpMethod="post" csrf_token={ this.props.csrf_token }>
         <div className="form-group">
           <label for="title" className="col-sm-2 control-label">Title</label>
           <div className="col-sm-10">

@@ -4,9 +4,9 @@ var React = require('react');
 
 module.exports = React.createClass({
   propTypes: {
-    csrf_token: React.PropTypes.string.required,
-    actionUrl: React.PropTypes.string.required,
-    httpMethod: React.PropTypes.string.required
+    csrf_token: React.PropTypes.string,
+    actionUrl: React.PropTypes.string,
+    httpMethod: React.PropTypes.string
   },
   render: function () {
     return (
