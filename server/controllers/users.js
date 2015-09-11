@@ -23,6 +23,10 @@ exports.load = function (req, res, next, id) {
   });
 };
 
+/**
+ * ----------- API ----------- *
+ */
+
 exports.loggedin = function (req, res) {
   res.send(req.isAuthenticated() ? req.user : '0');
 };

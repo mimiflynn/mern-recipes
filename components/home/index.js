@@ -9,8 +9,18 @@ module.exports = React.createClass({
 		user: React.PropTypes.object,
     isAuthenticated: React.PropTypes.bool
 	},
+  loggedInGreeting: function () {
+    return this.props.user.name;
+  },
+  guestGreeting: function () {
+    return (
+      <span>
+        <a href="/login">log in</a> or <a href="/signup">sign up</a>
+      </span>
+    );
+  },
   render: function () {
-    var greating = this.props.user ? this.props.user.name : <a href="/login">sign in</a>;
+    var greating = this.props.isAuthenticated ? this.loggedInGreeting() : this.guestGreeting();
     return (
       <DefaultLayout title={ this.props.title } user={ this.props.user } isAuthenticated={ this.props.isAuthenticated }>
         <section>
@@ -19,6 +29,7 @@ module.exports = React.createClass({
         <section>
         	<h2>Welcome, { greating }!</h2>
         </section>
+        <section id="recipebook" />
       </DefaultLayout>
     );
   }

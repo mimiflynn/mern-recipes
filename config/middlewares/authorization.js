@@ -24,14 +24,14 @@ exports.user = {
 }
 
 /*
- *  Article authorization routing middleware
+ *  Recipe authorization routing middleware
  */
 
-exports.article = {
+exports.recipe = {
   hasAuthorization: function (req, res, next) {
     if (req.article.user.id != req.user.id) {
       req.flash('info', 'You are not authorized')
-      return res.redirect('/articles/' + req.article.id)
+      return res.redirect('/recipes/' + req.recipe.id)
     }
     next()
   }

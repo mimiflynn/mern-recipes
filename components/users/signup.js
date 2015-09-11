@@ -13,42 +13,42 @@ module.exports = React.createClass({
   render: function () {
     return (
       <DefaultLayout title={this.props.title}>
-        <form action="/users" method="post" role="form" class="form-horizontal">
+        <form action="/users" method="post" role="form" className="form-horizontal">
           <input type="hidden" name="_csrf" value={ this.props.csrf_token } />
 
-          <div class="form-group">
-            <label for="name" class="col-sm-2 control-label">Full name</label>
-            <div class="col-sm-10">
-              <input id="name" class="form-control" type="text" name="name" placeholder="Full name" value={ this.props.user.name } />
+          <div className="form-group">
+            <label for="name" className="col-sm-2 control-label">Full name</label>
+            <div className="col-sm-10">
+              <input id="name" className="form-control" type="text" name="name" placeholder="Full name" value={ this.props.user.name } />
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="email" class="col-sm-2 control-label">Email</label>
-            <div class="col-sm-10">
-              <input type="text" name="email" placeholder="Email" value={ this.props.user.email } id="email" class="form-control" />
+          <div className="form-group">
+            <label for="email" className="col-sm-2 control-label">Email</label>
+            <div className="col-sm-10">
+              <input type="text" name="email" placeholder="Email" value={ this.props.user.email } id="email" className="form-control" />
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="username" class="col-sm-2 control-label">Username</label>
-            <div class="col-sm-10">
-              <input id="username" class="form-control" type="text" name="username" placeholder="Username" value={ this.props.user.username } />
+          <div className="form-group">
+            <label for="username" className="col-sm-2 control-label">Username</label>
+            <div className="col-sm-10">
+              <input id="username" className="form-control" type="text" name="username" placeholder="Username" value={ this.props.user.username } />
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="password" class="col-sm-2 control-label">Password</label>
-            <div class="col-sm-10">
-              <input id="password" class="form-control" type="password" name="password" placeholder="Password" />
+          <div className="form-group">
+            <label for="password" className="col-sm-2 control-label">Password</label>
+            <div className="col-sm-10">
+              <input id="password" className="form-control" type="password" name="password" placeholder="Password" />
             </div>
           </div>
 
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <button class="btn btn-primary" type="submit">Sign up</button>
+          <div className="form-group">
+            <div className="col-sm-offset-2 col-sm-10">
+              <button className="btn btn-primary" type="submit">Sign up</button>
               &nbsp; or &nbsp;
-              <a href="/login" class="show-login">Log in</a>
+              <a href="/login" className="show-login">Log in</a>
             </div>
           </div>
         </form>

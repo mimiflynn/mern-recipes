@@ -8,9 +8,11 @@ module.exports = function (grunt) {
     webpack: {
       build: {
         entry: './source/scripts/app.js',
+        debug: true,
+        devtool: '#source-map',
         output: {
             path: 'client/js/',
-            filename: 'app.js',
+            filename: 'app.js'
         },
         stats: {
             // Configure the console output
@@ -39,7 +41,7 @@ module.exports = function (grunt) {
         atBegin: true
       },
       dev: {
-        files: ['<%= jshint.files %>', 'source/**/*.js', 'shared/**/*.js'],
+        files: ['<%= jshint.files %>', 'source/**/*.js', 'components/**/*.js'],
         tasks: ['jshint', 'webpack']
       },
     }

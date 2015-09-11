@@ -9,10 +9,11 @@ var auth = require('./middlewares/authorization');
 
 var home = require('home');
 var users = require('users');
+var recipes = require('recipes');
+var tags = require('tags');
+var comments = require('comments');
 
-/**
- * Expose
- */
+// Auth Vars
 
 var authOptions = {
   successRedirect: '/',
@@ -20,16 +21,45 @@ var authOptions = {
   failureFlash: 'Invalid email or password.'
 };
 
+var recipeAuth = [auth.requiresLogin, auth.recipe.hasAuthorization];
+var commentAuth = [auth.requiresLogin, auth.comment.hasAuthorization];
+
+/**
+ * Expose
+ */
+
 module.exports = function (app, passport) {
 
   app.get('/', home.index);
+
+  // recipe routes
+  app.param('id', recipes.load);
+  app.get('/recipes', recipes.index);
+  app.get('/recipes/new', auth.requiresLogin, recipes.new);
+  app.post('/recipes', auth.requiresLogin, recipes.create);
+  app.get('/recipes/:id', recipes.show);
+  app.get('/recipes/:id/edit', recipeAuth, recipes.edit);
+  app.put('/recipes/:id', recipeAuth, recipes.update);
+  app.delete('/recipes/:id', recipeAuth, recipes.destroy);
+
+  app.get('/api/recipes', recipes.all);
+
+  // comment routes
+  app.param('commentId', comments.load);
+  app.post('/recipes/:id/comments', auth.requiresLogin, comments.create);
+  app.get('/recipes/:id/comments', auth.requiresLogin, comments.create);
+  app.delete('/recipes/:id/comments/:commentId', commentAuth, comments.destroy);
+
+  // tag routes
+  app.get('/tags/:tag', tags.index);
 
   // user routes
   app.get('/login', users.login);
   app.get('/signup', users.signup);
   app.get('/logout', users.logout);
   app.get('/users/:userId', users.show);
-  app.get('/loggedin', users.loggedin);
+  
+  app.get('/api/loggedin', users.loggedin);
   
   app.post('/users', users.create);
   app.post('/users/session',
