@@ -24,10 +24,8 @@ module.exports = React.createClass({
           <Navbar isAuthenticated={ this.props.isAuthenticated } user={ this.props.user } />
           <section className="content">
             <div className="container">
-              <div className="section">
-                <h1>{ this.props.title }</h1>
-              </div>
-              { this.props.children }
+              <h1>{ this.props.title }</h1>
+              <div className="section" dangerouslySetInnerHTML={{__html: this.props.children}} />
             </div>
           </section>
           <Scripts scripts={ this.props.scripts } />

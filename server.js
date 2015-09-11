@@ -12,6 +12,8 @@ var config = require('config');
 var app = express();
 var port = process.env.PORT || 3000;
 
+require('node-jsx').install();
+
 // Connect to mongodb
 var connect = function () {
   var options = { server: { socketOptions: { keepAlive: 1 } } };

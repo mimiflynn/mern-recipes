@@ -23,7 +23,7 @@ module.exports = React.createClass({
   render: function () {
     var greating = this.props.isAuthenticated ? this.loggedInGreeting() : this.guestGreeting();
     return (
-      <DefaultLayout title={ this.props.title } user={ this.props.user } isAuthenticated={ this.props.isAuthenticated } scripts={ this.props.scripts }>
+      <div>
         <section>
           { this.props.content }
         </section>
@@ -31,7 +31,7 @@ module.exports = React.createClass({
         	<h2>Welcome, { greating }!</h2>
         </section>
         <section id="recipebook" />
-      </DefaultLayout>
+      </div>
     );
   }
 });
