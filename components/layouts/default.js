@@ -1,7 +1,7 @@
 var React = require('react');
 
-var Navbar = require('./components/navbar.js');
-var Scripts = require('./components/scripts.js');
+var PageWrapper = require('./wrappers/page');
+var Scripts = require('./components/scripts');
 
 module.exports = React.createClass({
   propTypes: {
@@ -11,6 +11,7 @@ module.exports = React.createClass({
     scripts: React.PropTypes.array
   },
   render: function () {
+    var reactHtml = React.renderToString(<PageWrapper title={this.props.title} user={this.props.user} isAuthenticated={this.props.isAuthenticated} />);
     return (
       <html>
         <head>
@@ -19,17 +20,9 @@ module.exports = React.createClass({
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
           <link rel="stylesheet" href="/css/app.css" />
+          <Scripts scripts={this.props.scripts} />
         </head>
-        <body>
-          <Navbar isAuthenticated={ this.props.isAuthenticated } user={ this.props.user } />
-          <section className="content">
-            <div className="container">
-              <h1>{ this.props.title }</h1>
-              <div className="section" dangerouslySetInnerHTML={{__html: this.props.children}} />
-            </div>
-          </section>
-          <Scripts scripts={ this.props.scripts } />
-        </body>
+        <body dangerouslySetInnerHTML={{__html: reactHtml}} />
       </html>
     );
   }

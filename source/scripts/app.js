@@ -1,7 +1,7 @@
 var React = require('react');
-var RecipeBook = require('./recipes/components/RecipeBook');
+var RecipeApp = require('../../components/layouts/wrappers/page');
 
 React.render(
-  <RecipeBook />,
-  document.getElementById('recipebook')
+  <RecipeApp title={this.props.title} user={this.props.user} isAuthenticated={this.props.isAuthenticated} />,
+  document.body
 );
