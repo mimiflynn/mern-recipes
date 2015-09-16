@@ -1,6 +1,7 @@
 var React = require('react');
 
 var PageWrapper = require('./wrappers/page');
+var Navbar = require('./components/navbar');
 var Scripts = require('./components/scripts');
 
 module.exports = React.createClass({
@@ -20,9 +21,12 @@ module.exports = React.createClass({
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
           <link rel="stylesheet" href="/css/app.css" />
-          <Scripts scripts={this.props.scripts} />
         </head>
-        <body dangerouslySetInnerHTML={{__html: reactHtml}} />
+        <body>
+          <Navbar isAuthenticated={ this.props.isAuthenticated } user={ this.props.user } />
+          <div id="recipe-app" dangerouslySetInnerHTML={{__html: reactHtml}} />
+          <Scripts scripts={this.props.scripts} />
+        </body>
       </html>
     );
   }
