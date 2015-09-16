@@ -21,17 +21,17 @@ module.exports = React.createClass({
     );
   },
   render: function () {
-    var greating = this.props.isAuthenticated ? this.loggedInGreeting() : this.guestGreeting();
+    var greeting = this.props.isAuthenticated ? this.loggedInGreeting() : this.guestGreeting();
     return (
-      <div>
+      <DefaultLayout title={ this.props.title } scripts={ this.props.scripts } isAuthenticated={ this.props.isAuthenticated } user={ this.props.user }>
+        <section>
+        	<h2>Welcome, { greeting }!</h2>
+        </section>
         <section>
           { this.props.content }
         </section>
-        <section>
-        	<h2>Welcome, { greating }!</h2>
-        </section>
-        <section id="recipebook" />
-      </div>
+        <section id="recipe-app" />
+      </DefaultLayout>
     );
   }
 });

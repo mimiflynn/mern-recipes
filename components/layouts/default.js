@@ -12,7 +12,6 @@ module.exports = React.createClass({
     scripts: React.PropTypes.array
   },
   render: function () {
-    var reactHtml = React.renderToString(<PageWrapper title={this.props.title} user={this.props.user} isAuthenticated={this.props.isAuthenticated} />);
     return (
       <html>
         <head>
@@ -24,7 +23,7 @@ module.exports = React.createClass({
         </head>
         <body>
           <Navbar isAuthenticated={ this.props.isAuthenticated } user={ this.props.user } />
-          <div id="recipe-app" dangerouslySetInnerHTML={{__html: reactHtml}} />
+          { this.props.children }
           <Scripts scripts={this.props.scripts} />
         </body>
       </html>
