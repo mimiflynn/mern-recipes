@@ -1,8 +1,3 @@
-
-/**
- * Module dependencies.
- */
-
 var mongoose = require('mongoose');
 var Recipe = mongoose.model('Recipe');
 var utils = require('../../lib/utils');

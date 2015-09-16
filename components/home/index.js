@@ -1,6 +1,7 @@
 var React = require('react');
 
 var DefaultLayout = require('../layouts/default');
+var RecipeList = require('../recipes/recipe-list');
 
 module.exports = React.createClass({
 	propTypes: {
@@ -8,7 +9,8 @@ module.exports = React.createClass({
     isAuthenticated: React.PropTypes.bool,
     user: React.PropTypes.object,
 		content: React.PropTypes.string,
-		scripts: React.PropTypes.array
+		scripts: React.PropTypes.array,
+    recipes: React.PropTypes.array
 	},
   loggedInGreeting: function () {
     return this.props.user.name;
@@ -22,6 +24,7 @@ module.exports = React.createClass({
   },
   render: function () {
     var greeting = this.props.isAuthenticated ? this.loggedInGreeting() : this.guestGreeting();
+    var reactHtml = React.renderToString(<RecipeList recipes={ this.props.recipes } />);
     return (
       <DefaultLayout title={ this.props.title } scripts={ this.props.scripts } isAuthenticated={ this.props.isAuthenticated } user={ this.props.user }>
         <section>
@@ -30,7 +33,7 @@ module.exports = React.createClass({
         <section>
           { this.props.content }
         </section>
-        <section id="recipe-app" />
+        <section id="recipe-app" dangerouslySetInnerHTML={{__html: reactHtml}} />
       </DefaultLayout>
     );
   }
