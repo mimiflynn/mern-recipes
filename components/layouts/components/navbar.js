@@ -11,9 +11,6 @@ var guestMenu = [{
 }];
 
 var userMenu = [{
-  url: '/recipes',
-  label: 'Recipes'
-}, {
   url: '/recipes/new',
   label: 'Add a recipe'
 }, {
