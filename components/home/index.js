@@ -25,8 +25,10 @@ module.exports = React.createClass({
   render: function () {
     var greeting = this.props.isAuthenticated ? this.loggedInGreeting() : this.guestGreeting();
     var reactHtml = React.renderToString(<RecipeList recipes={ this.props.recipes } />);
+    var recipes = 'window.recipes = ' + JSON.stringify(this.props.recipes) + '';
     return (
       <DefaultLayout title={ this.props.title } scripts={ this.props.scripts } isAuthenticated={ this.props.isAuthenticated } user={ this.props.user }>
+        <script dangerouslySetInnerHTML={{__html: recipes}} />
         <section>
         	<h2>Welcome, { greeting }!</h2>
         </section>

@@ -28,8 +28,14 @@ module.exports = React.createClass({
   },
 
   render: function () {
-    return (
-      <RecipeList recipes={this.state.recipes} />
-    );
+    if (this.state.recipes.loaded) {
+      return (
+        <RecipeList recipes={this.state.recipes} />
+      );
+    } else {
+      return (
+        <RecipeList recipes={window.recipes} />
+      );
+    }
   }
 });
