@@ -1,8 +1,3 @@
-
-/**
- * Module dependencies.
- */
-
 var mongoose = require('mongoose');
 var Recipe = mongoose.model('Recipe');
 var utils = require('../../lib/utils');
@@ -88,6 +83,7 @@ exports.index = function (req, res){
 exports.new = function (req, res){
   res.render('recipes/new', {
     title: 'New Recipe',
+    isAuthenticated: req.isAuthenticated(),
     recipe: new Recipe({})
   });
 };

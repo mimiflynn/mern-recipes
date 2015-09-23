@@ -6,6 +6,7 @@ var RecipeForm = require('./form');
 module.exports = React.createClass({
   propTypes: {
     title: React.PropTypes.string,
+    isAuthenticated: React.PropTypes.bool,
     content: React.PropTypes.string,
     csrf_token: React.PropTypes.string.required
   },

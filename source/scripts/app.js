@@ -1,7 +1,7 @@
 var React = require('react');
-var RecipeBook = require('./recipes/components/RecipeBook');
+var RecipeApp = require('./recipes/components/RecipeBook');
 
 React.render(
-  <RecipeBook />,
-  document.getElementById('recipebook')
+  <RecipeApp />,
+  document.getElementById('recipe-app')
 );

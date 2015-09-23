@@ -23,7 +23,7 @@ var userMenu = [{
 
 module.exports = React.createClass({
   propTypes: {
-    user: React.PropTypes.string,
+    user: React.PropTypes.object,
     isAuthenticated: React.PropTypes.bool
   },
   componentWillMount: function () {

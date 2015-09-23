@@ -1,6 +1,6 @@
 var React = require('react');
 
-var FormWrapper = require('../layouts/form-wrapper.js');
+var FormWrapper = require('../layouts/wrappers/form.js');
 
 module.exports = React.createClass({
   propTypes: {
