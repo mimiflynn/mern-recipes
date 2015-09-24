@@ -2,25 +2,6 @@ var React = require('react');
 
 var FormWrapper = require('../layouts/wrappers/form.js');
 
-var recipe = {
-  title: 'recipe name',
-  body: 'recipe description',
-  ingredients: [{
-    quantity: '2',
-    unit: 'TBSP',
-    name: 'Basil'
-  }],
-  user: {},
-  comments: [{
-    body: 'body of comment',
-    user: {},
-    createdAt: Date.now
-  }],
-  tags: ['thing', 'stuff'],
-  image: {},
-  createdAt: Date.now
-};
-
 module.exports = React.createClass({
   propTypes: {
     csrf_token: React.PropTypes.string,
@@ -28,7 +9,7 @@ module.exports = React.createClass({
     recipe: React.PropTypes.object
   },
   getInitialState: function() {
-    return recipe;
+    return {};
   },
   handleChange: function (event) {
     var newValue = {};
@@ -45,6 +26,8 @@ module.exports = React.createClass({
     this.setState(newValue);
   },
   render: function () {
+    var tags = this.state.tags || [];
+
     return (
       <FormWrapper actionUrl="/api/recipes" httpMethod="post" csrf_token={ this.props.csrf_token }>
         <div className="form-group">
@@ -68,7 +51,7 @@ module.exports = React.createClass({
         <div className="form-group">
           <label htmlFor="tags" className="col-sm-2 control-label">Tags</label>
           <div className="col-sm-10">
-            <input type="text" name="tags" value={ this.state.tags.join(', ') } onChange={ this.handleTagChange } placeholder="Enter the tags" className="form-control" id="tags" />
+            <input type="text" name="tags" value={ tags.join(', ') } onChange={ this.handleTagChange } placeholder="Enter the tags" className="form-control" id="tags" />
           </div>
         </div>
         <div className="form-group">
