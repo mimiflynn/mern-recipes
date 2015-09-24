@@ -11,6 +11,9 @@ module.exports = React.createClass({
     page: React.PropTypes.number,
     pages: React.PropTypes.number
   },
+  contextTypes: {
+    isAuthenticated: React.PropTypes.bool
+  },
   render: function () {
     var recipes = this.props.recipes.map(function (item, index) {
       return (
