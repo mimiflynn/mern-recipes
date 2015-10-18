@@ -7,12 +7,10 @@ var Recipe = require('./recipe');
 module.exports = React.createClass({
   propTypes: {
     title: React.PropTypes.string,
+    isAuthenticated: React.PropTypes.bool,
     recipes: React.PropTypes.array,
     page: React.PropTypes.number,
     pages: React.PropTypes.number
-  },
-  contextTypes: {
-    isAuthenticated: React.PropTypes.bool
   },
   render: function () {
     var recipes = this.props.recipes.map(function (item, index) {

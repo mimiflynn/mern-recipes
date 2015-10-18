@@ -14,14 +14,6 @@ module.exports = React.createClass({
     recipes: React.PropTypes.array,
     csrf_token: React.PropTypes.string
 	},
-  childContextTypes: {
-    isAuthenticated: React.PropTypes.bool
-  },
-  getChildContext: function () {
-    return {
-      isAuthenticated: this.props.isAuthenticated
-    };
-  },
   loggedInGreeting: function () {
     return this.props.user.name;
   },
