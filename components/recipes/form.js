@@ -8,49 +8,50 @@ module.exports = React.createClass({
     error: React.PropTypes.string,
     recipe: React.PropTypes.object
   },
+  getInitialState: function() {
+    return {};
+  },
+  handleChange: function (event) {
+    var newValue = {};
+    newValue[event.target.name] = event.target.value;
+
+    this.setState(newValue);
+  },
+  handleTagChange: function (event) {
+    var newValue = {};
+    var tags = event.target.value.split(', ');
+
+    newValue[event.target.name] = tags;
+
+    this.setState(newValue);
+  },
   render: function () {
-    var recipe = {
-      title: 'recipe name',
-      body: 'recipe description',
-      ingredients: [{
-        quantity: '2',
-        unit: 'TBSP',
-        name: 'Basil'
-      }],
-      user: {},
-      comments: [{
-        body: 'body of comment',
-        user: {},
-        createdAt: Date.now
-      }],
-      tags: ['thing', 'stuff'],
-      image: {},
-      createdAt: Date.now
-    };
+    var tags = this.state.tags || [];
+
     return (
-      <FormWrapper actionUrl="/recipes" httpMethod="post" csrf_token={ this.props.csrf_token }>
+      <FormWrapper actionUrl="/api/recipes" httpMethod="post" csrf_token={ this.props.csrf_token }>
         <div className="form-group">
-          <label for="title" className="col-sm-2 control-label">Title</label>
+          <label htmlFor="title" className="col-sm-2 control-label">Title</label>
           <div className="col-sm-10">
-            <input type="text" name="title" value={ recipe.title } placeholder="Enter the title" className="form-control" id="title" />
+            <input type="text" name="title" value={ this.state.title } onChange={ this.handleChange } placeholder="Enter the title" className="form-control" id="title" />
           </div>
         </div>
         <div className="form-group">
-          <label for="file" className="col-sm-2 control-label">Image</label>
+          <label htmlFor="file" className="col-sm-2 control-label">Image</label>
           <div className="col-sm-10">
             <input type="file" name="image" className="form-control" id="file" />
           </div>
         </div>
         <div className="form-group">
-          <label for="desc" className="col-sm-2 control-label">Body</label>
+          <label htmlFor="desc" className="col-sm-2 control-label">Body</label>
           <div className="col-sm-10">
-            <textarea rows="5" name="body" placeholder="Enter the article description" id="desc" className="form-control">{ recipe.body }</textarea>
+            <textarea rows="5" name="body" value={ this.state.body } onChange={ this.handleChange } placeholder="Enter the article description" id="desc" className="form-control" />
           </div>
         </div>
         <div className="form-group">
-          <label for="tags" className="col-sm-2 control-label">Tags</label>
+          <label htmlFor="tags" className="col-sm-2 control-label">Tags</label>
           <div className="col-sm-10">
-            <input type="text" name="tags" value={ recipe.tags.join(', ') } placeholder="Enter the tags" className="form-control" id="tags" />
+            <input type="text" name="tags" value={ tags.join(', ') } onChange={ this.handleTagChange } placeholder="Enter the tags" className="form-control" id="tags" />
           </div>
         </div>
         <div className="form-group">

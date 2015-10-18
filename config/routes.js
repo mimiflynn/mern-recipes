@@ -36,13 +36,13 @@ module.exports = function (app, passport) {
   app.param('id', recipes.load);
   app.get('/recipes', recipes.index);
   app.get('/recipes/new', auth.requiresLogin, recipes.new);
-  app.post('/recipes', auth.requiresLogin, recipes.create);
   app.get('/recipes/:id', recipes.show);
   app.get('/recipes/:id/edit', recipeAuth, recipes.edit);
-  app.put('/recipes/:id', recipeAuth, recipes.update);
-  app.delete('/recipes/:id', recipeAuth, recipes.destroy);
 
   app.get('/api/recipes', recipes.all);
+  app.post('/api/recipes', auth.requiresLogin, recipes.create);
+  app.put('/api/recipes/:id', recipeAuth, recipes.update);
+  app.delete('/api/recipes/:id', recipeAuth, recipes.destroy);
 
   // comment routes
   app.param('commentId', comments.load);

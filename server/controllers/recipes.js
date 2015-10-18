@@ -39,6 +39,64 @@ exports.all = function (req, res) {
 };
 
 /**
+ * Create an recipe
+ * Upload an image
+ */
+
+exports.create = function (req, res) {
+  var recipe = new Recipe(req.body);
+  var images;
+
+  if (typeof req.files !== 'undefined') {
+    images = [req.files.image];
+  } else {
+    images = undefined;
+  }
+
+  recipe.user = req.user;
+  recipe.uploadAndSave(images, function (err) {
+    if (!err) {
+      req.flash('success', 'Successfully created recipe!');
+      return res.redirect('/recipes/'+recipe._id);
+    }
+    res.render('recipes/new', {
+      title: 'New Recipe',
+      isAuthenticated: req.isAuthenticated(),
+      recipe: recipe,
+      errors: utils.errors(err.errors || err)
+    });
+  });
+};
+
+/**
+ * Update recipe
+ */
+
+exports.update = function (req, res){
+  var recipe = req.recipe;
+  var images = req.files.image
+    ? [req.files.image]
+    : undefined;
+
+  // make sure no one changes the user
+  delete req.body.user;
+  recipe = extend(recipe, req.body);
+
+  recipe.uploadAndSave(images, function (err) {
+    if (!err) {
+      return res.redirect('/recipes/' + recipe._id);
+    }
+
+    res.render('recipes/edit', {
+      title: 'Edit Recipe',
+      isAuthenticated: req.isAuthenticated(),
+      recipe: recipe,
+      errors: utils.errors(err.errors || err)
+    });
+  });
+};
+
+/**
  * Delete an recipe
  */
 
@@ -89,36 +147,6 @@ exports.new = function (req, res){
 };
 
 /**
- * Create an recipe
- * Upload an image
- */
-
-exports.create = function (req, res) {
-  var recipe = new Recipe(req.body);
-  var images;
-
-  if (typeof req.files !== 'undefined') {
-    images = [req.files.image];
-  } else {
-    images = undefined;
-  }
-
-  recipe.user = req.user;
-  recipe.uploadAndSave(images, function (err) {
-    if (!err) {
-      req.flash('success', 'Successfully created recipe!');
-      return res.redirect('/recipes/'+recipe._id);
-    }
-    res.render('recipes/new', {
-      title: 'New Recipe',
-      isAuthenticated: req.isAuthenticated(),
-      recipe: recipe,
-      errors: utils.errors(err.errors || err)
-    });
-  });
-};
-
-/**
  * Edit an recipe
  */
 
@@ -130,33 +158,6 @@ exports.edit = function (req, res) {
   });
 };
 
-/**
- * Update recipe
- */
-
-exports.update = function (req, res){
-  var recipe = req.recipe;
-  var images = req.files.image
-    ? [req.files.image]
-    : undefined;
-
-  // make sure no one changes the user
-  delete req.body.user;
-  recipe = extend(recipe, req.body);
-
-  recipe.uploadAndSave(images, function (err) {
-    if (!err) {
-      return res.redirect('/recipes/' + recipe._id);
-    }
-
-    res.render('recipes/edit', {
-      title: 'Edit Recipe',
-      isAuthenticated: req.isAuthenticated(),
-      recipe: recipe,
-      errors: utils.errors(err.errors || err)
-    });
-  });
-};
 
 /**
  * Show

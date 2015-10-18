@@ -7,6 +7,7 @@ var Recipe = require('./recipe');
 module.exports = React.createClass({
   propTypes: {
     title: React.PropTypes.string,
+    isAuthenticated: React.PropTypes.bool,
     recipes: React.PropTypes.array,
     page: React.PropTypes.number,
     pages: React.PropTypes.number
